@@ -1,4 +1,4 @@
-![alt text](./.github/cover.jpg "Title")
+![alt text](./.github/cover.jpg "🗓️ YottaHQ Bookable")
 
 ---
 
