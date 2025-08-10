@@ -27,7 +27,7 @@ class Booking extends Model
         return $this->morphTo();
     }
 
-    public function scopeActive($query): \LaravelIdea\Helper\YottaHQ\Bookable\Models\_IH_Booking_QB
+    public function scopeActive($query): \Illuminate\Database\Eloquent\Builder
     {
         return $query->whereNull('canceled_at');
     }
