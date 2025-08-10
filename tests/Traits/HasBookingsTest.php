@@ -4,15 +4,12 @@ namespace YottaHQ\Bookable\Tests\Traits;
 
 use YottaHQ\Bookable\Models\Booking;
 use YottaHQ\Bookable\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Workbench\App\Models\Room;
 
 class HasBookingsTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function setUp(): void
     {
         parent::setUp();
