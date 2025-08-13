@@ -27,14 +27,17 @@ class SingleDailySlotStrategy implements AvailabilityStrategy
         $period = CarbonPeriod::create($periodStart, $periodEnd);
 
         $allBookings = $bookable->bookings()
-            ->whereBetween('start_time', [$period->getStartDate(), $period->getEndDate()])
-            ->get()
-            ->groupBy(fn($booking) => Carbon::parse($booking->start_time)->toDateString());
+            ->whereBetween('start_time', [$periodStart, $periodEnd])
+            ->get();
 
         foreach ($period as $date) {
             $dateStr = $date->toDateString();
 
-            if ($allBookings->contains($dateStr)) {
+            $containsDate = $allBookings->contains(function ($booking) use ($dateStr) {
+                return $booking->start_time->toDateString() === $dateStr;
+            });
+
+            if ($containsDate) {
                 continue;
             }
 
