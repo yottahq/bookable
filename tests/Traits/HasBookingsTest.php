@@ -10,26 +10,9 @@ use Workbench\App\Models\Room;
 
 class HasBookingsTest extends TestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->loadLaravelMigrations();
-        $this->setUpSchema();
-    }
-
-    protected function setUpSchema(): void
-    {
-        // Create a minimal table for test model
-        Schema::create('rooms', static function ($table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
-
     public function testItCanAddBooking(): void
     {
-        $room = Room::create();
+        $room = Room::factory()->create();
 
         $start = Carbon::parse('2025-08-01 10:00:00');
         $end = Carbon::parse('2025-08-01 12:00:00');

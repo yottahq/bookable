@@ -2,6 +2,7 @@
 
 namespace Workbench\App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use YottaHQ\Bookable\Contracts\BookableContract;
 use YottaHQ\Bookable\Traits\HasBookings;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model implements BookableContract
 {
     use HasBookings;
+    use HasFactory;
 
     protected $guarded = [];
     protected $table = 'rooms';
